@@ -11,7 +11,7 @@ const fs = require("fs");
 
 bot.on("ready", async () => {
 	console.log(`${bot.user.username} is online!`);
-	bot.user.setActivity("to your commands!", {type: "LISTENING"});
+	bot.user.setActivity("FPE SCRIMS", {type: "LISTENING"});
 });
 
 //bot.on("guildMemberAdd", member) {
