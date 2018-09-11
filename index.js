@@ -1276,13 +1276,11 @@ bot.on("message", async message => {
 	.addField("Commands", "User Commands", true)
 	.addField("Other", "Commands", true)
     	.addField("!help", "Help Command", true)
-    	.addField("!ping", "Ping Command", true)
    	.addField("!invite", "Makes Invite", true)
-    	.addField("!report", "Report player", true)
     	.addField("!info", "Show Info", true)
     	.addField("!botinfo", "Show Bot Info")
     	.addField("!fn", "Tracks a user")
-	.setFooter("You executed the !help command with ScrimBot!")
+	.setFooter("Has ejecutado el comando !help")
    	.setColor(6812512);
 
 	message.channel.sendEmbed(helpEmbed);
