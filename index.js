@@ -103,6 +103,9 @@ bot.on("message", async message => {
 		if(message.content.includes("squad")){
 		message.delete();
 		message.channel.send("------------------------------------------");
+	        message.channel.send("@everyone");
+	        message.channel.send("@here");
+	        message.channel.send("@scrimmer");
 		let servericon = bot.user.displayAvatarURL;
 		let hosticon = message.author.displayAvatarURL;
 		let announcement = new Discord.RichEmbed()
