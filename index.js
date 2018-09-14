@@ -100,10 +100,11 @@ bot.on("message", async message => {
 		}
 	}
 	if(message.channel.id === "490054558232477716" && message.member.roles.find(r => r.name === "Scrim Staff")){
+    		const at = "@";
 		if(message.content.includes("squad")){
 		message.delete();
 		message.channel.send("------------------------------------------");
-		message.channel.send("@everyone")
+        	message.channel.send(at + "scrimmer")
 		let servericon = bot.user.displayAvatarURL;
 		let hosticon = message.author.displayAvatarURL;
 		let announcement = new Discord.RichEmbed()
