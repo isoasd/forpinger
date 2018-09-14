@@ -103,8 +103,10 @@ bot.on("message", async message => {
     		const at = "@";
 		if(message.content.includes("squad")){
 		message.delete();
+	if (message.member.roles.has("id", "486686419683639296")) {
+        	message.channel.send(at + "here")
+   		 }
 		message.channel.send("------------------------------------------");
-        	message.channel.send(at + "scrimmer")
 		let servericon = bot.user.displayAvatarURL;
 		let hosticon = message.author.displayAvatarURL;
 		let announcement = new Discord.RichEmbed()
