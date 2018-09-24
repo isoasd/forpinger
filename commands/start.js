@@ -4,19 +4,19 @@ module.exports.run = async (bot, message, args) => {
  if(!message.member.roles.find(r => r.name === "Scrim Staff")) return;
  
  let scrimlast3chan = message.guild.channels.find(`name`, "scrim-last3");
-		scrimlast3chan.overwritePermissions(message.guild.id, {
-	SEND_MESSAGES: false
-	})
+ 	 scrimlast3chan.overwritePermissions(message.guild.id, {
+SEND_MESSAGES: false
+})
 	scrimlast3chan.send("*Chat is now unlocked!*");
 	let nficon = bot.user.displayAvatarURL;
 	let negicon = message.author.displayAvatarURL;
 	let todaysDate = new Date();
 	let infoScrimEmbed = new Discord.RichEmbed()
-	.setTitle("Small Scrims Community Scrim Info", nficon)
+	.setTitle("Fortnite Pro Elite Scrim Info", nficon)
 	.addField("Hosted by:", message.author)
-	.addField("Loading Content", "Load content by pressing `Ready` wait for Loading Content to be at 100%, then press cancel.")
-	.addField("Rules:", "**Using C4, Clingers and Third Partying in top 10 are now allowed**!, please obey the rules while scrimming. Also please report players with !report, and do not publicly announce it.")
-	.setFooter(`Match lead by ${message.author.username}`, negicon)
+	.addField("Cargando contenido", "Cargue contenido presionando Listo para cargar contenido para que esté al 100%, luego presione cancelar.")
+	.addField("Reglas:", "**Using C4, Clingers and Third Partying in top 10 are now allowed**!, please obey the rules while scrimming. Also please report players with !report, and do not publicly announce it.")
+	.setFooter(`Match dirigido por ${message.author.username}`, negicon)
 	.setTimestamp()
 	.setColor(4702463);
 	
@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
 	await startTimeout(9000);
 	scrimlast3chan.overwritePermissions(message.guild.id, {
 	SEND_MESSAGES: true
-	})	
+	})		
 		
 		
 		
@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
 	while( (now3 = Date.now()) < end3Time ) {
 		let minsRemaining = (end3Time - now3) / (1000);
 		minsRemaining = Math.floor(minsRemaining);
-		startEmbed.setDescription(`You have *${minsRemaining}* seconds to type your Last3!`)
+		startEmbed.setDescription(`Tienes *${minsRemaining}* segundos para escribir su Last3!`)
 		sent3Message.edit(startEmbed);
 		await startTimeout(5000);
 	}
@@ -59,7 +59,7 @@ module.exports.run = async (bot, message, args) => {
 			splitCodeRoles.push(allCodeRoles.slice(i, i + SPLIT_LENGTH));
 		}
 		for(const codeRoles of splitCodeRoles) {
-			let eb = new Discord.RichEmbed().setColor(16776960).setTitle("Game Information").setFooter(`[Live] With ${allCodeRoles.length} matches.`);
+			let eb = new Discord.RichEmbed().setColor(16776960).setTitle("Informacion del juego").setFooter(`[Live] con ${allCodeRoles.length} matches.`);
 			for(const role of codeRoles) {
 				const membersString = role.members.map(m => m.user.tag).join("\n");
 				eb.addField(`ID: ${role.name}`, membersString, true);
