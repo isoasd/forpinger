@@ -12,11 +12,11 @@ module.exports.run = async (bot, message, args) => {
 	let negicon = message.author.displayAvatarURL;
 	let todaysDate = new Date();
 	let infoScrimEmbed = new Discord.RichEmbed()
-	.setTitle("Fortnite Pro Elite Scrim Info", nficon)
+	.setTitle("Small Scrims Community Scrim Info", nficon)
 	.addField("Hosted by:", message.author)
-	.addField("Cargando contenido", "Cargue contenido presionando Listo para cargar contenido para que esté al 100%, luego presione cancelar.")
+	.addField("Loading Content", "Load content by pressing `Ready` wait for Loading Content to be at 100%, then press cancel.")
 	.addField("Rules:", "**Using C4, Clingers and Third Partying in top 10 are now allowed**!, please obey the rules while scrimming. Also please report players with !report, and do not publicly announce it.")
-	.setFooter(`Match dirigido por ${message.author.username}`, negicon)
+	.setFooter(`Match lead by ${message.author.username}`, negicon)
 	.setTimestamp()
 	.setColor(4702463);
 	
@@ -31,9 +31,9 @@ module.exports.run = async (bot, message, args) => {
 		
 		
 	let startEmbed = new Discord.RichEmbed()
-	.setTitle("**Esperando IDs de los servidores...**")
-	.setDescription("Tienes 61 segundos para escribit tu Last3!")
-	.addField("Por favor ingrese los ultimos 3 digitos de su servidor!", "Dentro del juego puedes encontrar esto en la esquina superior izquierda de la pantalla.")
+	.setTitle("**Waiting for server IDs...**")
+	.setDescription("You have 61 seconds to type your Last3!")
+	.addField("Please enter the last 3 digits of your server!", "When in-game you can find this in the top left corner of your screen.")
 	.setColor(6812512);
 	const end3Time = Date.now() + 1000 * 61;
 	const sent3Message = await scrimlast3chan.send(startEmbed);
@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
 	while( (now3 = Date.now()) < end3Time ) {
 		let minsRemaining = (end3Time - now3) / (1000);
 		minsRemaining = Math.floor(minsRemaining);
-		startEmbed.setDescription(`Tienes *${minsRemaining}* segundos para escribir su Last3!`)
+		startEmbed.setDescription(`You have *${minsRemaining}* seconds to type your Last3!`)
 		sent3Message.edit(startEmbed);
 		await startTimeout(5000);
 	}
@@ -59,7 +59,7 @@ module.exports.run = async (bot, message, args) => {
 			splitCodeRoles.push(allCodeRoles.slice(i, i + SPLIT_LENGTH));
 		}
 		for(const codeRoles of splitCodeRoles) {
-			let eb = new Discord.RichEmbed().setColor(16776960).setTitle("Informacion del juego").setFooter(`[Live] con ${allCodeRoles.length} matches.`);
+			let eb = new Discord.RichEmbed().setColor(16776960).setTitle("Game Information").setFooter(`[Live] With ${allCodeRoles.length} matches.`);
 			for(const role of codeRoles) {
 				const membersString = role.members.map(m => m.user.tag).join("\n");
 				eb.addField(`ID: ${role.name}`, membersString, true);
@@ -79,8 +79,8 @@ module.exports.run = async (bot, message, args) => {
 		
 
 	let nextgameEmbed = new Discord.RichEmbed()
-	.setTitle("**Siguiente scrim en aproximadamente...**")
-	.setDescription("*25 Minutos*")
+	.setTitle("**Next snipe in approx...**")
+	.setDescription("*25 Minutes*")
 	.setColor(13859315);
 
 	let last3chan = message.guild.channels.find(`name`, "scrim-last3");
@@ -88,16 +88,16 @@ module.exports.run = async (bot, message, args) => {
 	last3chan.overwritePermissions(message.guild.id, {
 			SEND_MESSAGES: false
 			})
-	last3chan.send("*Chat bloquado...*");
+	last3chan.send("*Chat locked...*");
 		
 	await startTimeout(3000);
 		const agree = "👍";
 	const disagree = "👎";
 
 	let testEmbed = new Discord.RichEmbed()
-	.setTitle("[Poll] Deberiamos reiniciar?")
-	.setDescription("Por favor vota abajo.")
-	.setFooter("Nota: El host decidira un reinicio!")
+	.setTitle("[Poll] Should We Restart?")
+	.setDescription("Please vote below.")
+	.setFooter("Note: The host will decide a restart!")
 	.setColor(16097625);
 	let msg = await last3chan.send(testEmbed);
 	await msg.react(agree);
