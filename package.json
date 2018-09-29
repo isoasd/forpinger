@@ -10,9 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.4.2",
-    "fortnite": "^4.1.1",
-    "ytdl-core": "^0.24.0",
+    "env": "0.0.2",
     "ffmpeg-binaries": "4.0.0",
-    "opusscript": "0.0.6"
+    "fortnite": "^4.1.1",
+    "fs": "0.0.1-security",
+    "npm": "^6.4.1",
+    "opusscript": "0.0.6",
+    "ytdl-core": "^0.24.0"
   }
 }
