@@ -582,7 +582,7 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
 	}
 	
 	
-	if(cmd === `${prefix}pp` && message.member.hasPermissions("ADMINISTRATOR")){
+	if(cmd === `${prefix}pp` && message.member.roles.find(r => r.name === "Scrim Staff")){
 	var servers = {};
 		if(message.member.voiceChannel)
 		{
