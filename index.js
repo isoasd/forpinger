@@ -1,11 +1,12 @@
 const Discord = require("discord.js");
  const bot = new Discord.Client({disableEveryone: true});
-const config = require("./process.env.json");
 const Fortnite = require("fortnite");
 const YTDL = require("ytdl-core");
 const opusscript = require("opusscript");
 const xp = require("./xp.json");
 const fs = require("fs");
+
+
  bot.on("ready", async () => {
 	console.log(`${bot.user.username} is online!`);
 	bot.user.setActivity("FPE SCRIMS", {type: "PLAYING"});
