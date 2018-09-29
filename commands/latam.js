@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 message.member.addRole(message.guild.roles.find("name", "Ranking"));
 	message.member.addRole(message.guild.roles.find("name", "LATAM"));
 	message.member.removeRole(message.guild.roles.find("name", "Starter"));
-	message.author.send("Tu region a sido cambiada a LATAM");
+	message.author.send("Your region has been set to LATAM");
 
   
 }

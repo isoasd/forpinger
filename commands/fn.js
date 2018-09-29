@@ -7,7 +7,8 @@ module.exports.run = async (bot, message, args) => {
 
   if(message.channel.id === "486026246007029781") return;
   if(message.channel.id === "486681158348701697") return;
-if(message.channel.id === "486681135619899412") return;
+
+	if(message.channel.id === "486681135619899412") return;
 	
 	
 	let username = args.slice(1).join(" ") || message.member.nickname;
@@ -17,6 +18,9 @@ if(message.channel.id === "486681135619899412") return;
 	if(!args[0]) return message.reply("Format !fn <solo,duo,squad,lifetime> <username>") && message.channel.send("To set your rank type !fn solo (your fortnite name) WITHOUT the brackets!");
 		
 
+		
+	
+	
 	if(args[0] === "help") return message.reply("Format !fn <solo, duo, squad, lifetime> <username>");
 	
 	if(args[0] != "lifetime" && args[0] != "solo" && args[0] != "duo" && args[0] != "squad") return message.reply("Format !fn <solo,duo,squad,lifetime> <username>");	

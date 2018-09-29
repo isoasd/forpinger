@@ -7,7 +7,7 @@ if(message.channel.id === "486681135619899412") return;
 		if(message.channel.id === "486681158348701697") return;
 
 	let inviteEmbed = new Discord.RichEmbed()
-	.addField("Invite Link", "https://discord.gg/GEJvyJR")
+	.addField("Invite Link", "https://discord.gg/ggPntHV")
 	.setColor(6812512);
 	
 	message.channel.send(inviteEmbed);
