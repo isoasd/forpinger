@@ -11,6 +11,7 @@ const fs = require("fs");
 	console.log(`${bot.user.username} is online!`);
 	bot.user.setActivity("FPE SCRIMS", {type: "PLAYING"});
 });
+
  //bot.on("guildMemberAdd", member) {
 //	   member.addRole(bot.guild.roles.find("name", "Starter"));
 //
@@ -25,6 +26,7 @@ const fs = require("fs");
 //
 //		
 //});
+
  bot.on('guildMemberAdd', member => {
 		let platChannel = member.guild.channels.find('name', 'choose-platform');
 		var role = member.guild.roles.find('name', 'Starter');
@@ -155,7 +157,7 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
 	
 	if(message.channel.id === "486026246007029781"){
 	if(message.content === "!start" && message.member.roles.find(r => r.name === "Scrim Staff")){
-		message.reply("Please use the #scrim-chat channel for that!").then(msg => msg.delete(2000));
+		message.reply("¡Usa el canal #scrim-comandos para eso!").then(msg => msg.delete(2000));
 		
 		return;
 	   	
@@ -295,15 +297,12 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
 // 	}
 // 	}
 	
- 	
+													// CANAL PARA ELEGIR REGION //	
 	if(cmd === `${prefix}region`){
-	message.reply("Error.");
- 	
-	
-	
- 	
+	message.reply("Error."); 	
 	return;
-}
+	}
+
 	if(cmd === `${prefix}latam` && message.channel.id === "486681135619899412") {
 	message.member.addRole(message.guild.roles.find("name", "Ranking"));
 	message.member.addRole(message.guild.roles.find("name", "LATAM"));
@@ -311,12 +310,28 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
 	message.author.send("Su region se ha configurado para LATAM");
  	return;
 	}
+
+	if(cmd === `${prefix}Latam` && message.channel.id === "486681135619899412") {
+		message.member.addRole(message.guild.roles.find("name", "Ranking"));
+		message.member.addRole(message.guild.roles.find("name", "LATAM"));
+		message.member.removeRole(message.guild.roles.find("name", "Starter"));
+		message.author.send("Su region se ha configurado para LATAM");
+		 return;
+	}
+
+	if(cmd === `${prefix}LATAM` && message.channel.id === "486681135619899412") {
+		message.member.addRole(message.guild.roles.find("name", "Ranking"));
+		message.member.addRole(message.guild.roles.find("name", "LATAM"));
+		message.member.removeRole(message.guild.roles.find("name", "Starter"));
+		message.author.send("Su region se ha configurado para LATAM");
+		 return;
+	}
+
 	if(cmd === `${prefix}helpme` && message.channel.id === "486681158348701697"){
-		message.author.send("Su nombre y rango no se han establecido, póngase en contacto con un administrador para obtener ayuda.");
 		message.member.addRole(message.guild.roles.find("name", "Scrimmer"));
 		message.member.removeRole(message.guild.roles.find("name", "Ranking"));
-	
-	return;
+		message.author.send("Su nombre y rango no se han establecido, póngase en contacto con un administrador para obtener ayuda.");
+		 return;
 	}
 	
 	
@@ -335,6 +350,7 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
 	
 	return;
 	}
+
 	if(cmd === `${prefix}rankme` && message.channel.id === "486681158348701697"){
 		const Client = require("fortnite");
 		const fortnite = new Client(process.env.APIKEY);
@@ -409,102 +425,6 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
 	
 		return;
 	}
-	
-	
-	//if(cmd === `${prefix}pee`){
-	//		var servers = {};
-//
-//		function Play(connection, message) {
-//	const YTDL = require("ytdl-core");
-//
-//	var server = servers[message.guild.id];
-//	
-//	server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
-//	
-//	server.queue.shift();
-//	
-//	server.dispatcher.on("end", function() {
-//		if(server.queue[0]){
-//			Play(connection, message)
-//		}else{
-//	 connection.disconnect();
-//		}
-//
-//	});
-//}
-//
-//		const YTDL = require("ytdl-core");
-//	const FFMPEG = require("ffmpeg-binaries");
-//	const opusscript = require("opusscript");
-//		if(message.member.voiceChannel)
-//		{
-//			if(!message.guild.voiceConnection)
-//			{
-//				
-//				var server = servers[message.guild.id];
-//				message.member.voiceChannel.join()
-//				.then(connection => {
-//					var servers = {};
-//					var server = servers[message.guild.id];
-//					message.reply("Joined");
-//					servers[message.guild.is].queue.push(args);
-//					Play(connection, message);
-//				})
-//			}
-//		}else{
-//			message.reply("Please be in a voice channel");
-//		}
-//	
-//		return;
-//	}
-	
-	
-//	if(cmd === `${prefix}pl` && message.member.hasPermissions("ADMINISTRATOR")) {
-//		var servers = {};
-//		function play(connection, message) {
-//	const YTDL = require("ytdl-core");
-//
-//	var server = servers[message.guild.id];
-//	
-//	server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
-//	
-//	server.queue.shift();
-//	
-//	server.dispatcher.on("end", function() {
-//		if(server.queue[0]) play(connection, message);
-//		else connection.disconnect();
-//	});
-//	}
-//		if(!args[0]) {
-//			message.channel.send("Provide link pls");
-//			return;
-//		}
-//		if(!message.member.voiceChannel) {
-//			message.channel.send("You must be in a voice channel");
-//			return;
-//		}
-//		if(!servers[message.guild.id]) servers[message.guild.id] = {
-//			queue: []
-//		};
-//		var server = servers[message.guild.id];
-//		
-//		server.queue.push(args[0]);
-//		
-//		if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
-//			play(connection, message);
-//		});
-//		
-//		return;
-//	}
-//	if(cmd === `${prefix}st` && message.member.hasPermissions("ADMINISTRATOR")){
-//		var server = servers[message.guild.id];
-//		
-//		if(message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
-//		
-//		return;
-//	}
-	
-	
 	
  	
 	if(cmd === `${prefix}test` && message.member.hasPermissions("ADMINISTRATOR")) {
@@ -582,7 +502,7 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
 	}
 	
 	
-	if(cmd === `${prefix}pp` && message.member.roles.find(r => r.name === "Scrim Staff")){
+	if(cmd === `${prefix}scrim` && message.member.roles.find(r => r.name === "Scrim Staff")){
 	var servers = {};
 		if(message.member.voiceChannel)
 		{
@@ -609,34 +529,7 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
 	return;
 	}
 	
-// 	if(cmd === `${prefix}show` && message.member.permissions.has("ADMINISTRATOR")){
-// 			const allCodeRoles = message.guild.roles
-// 		.filter(r => (/^\w{3}$/).test(r.name))
-// 		.sort((roleA, roleB) => roleA.name.localeCompare(roleB.name))
-// 		.array();
-// 		const SPLIT_LENGTH = 25;
-// 		const splitCodeRoles = [];
-// 		for(let i = 0; i < allCodeRoles.length; i += SPLIT_LENGTH){
-// 			splitCodeRoles.push(allCodeRoles.slice(i, i + SPLIT_LENGTH));
-// 		}
-// 		for(const codeRoles of splitCodeRoles) {
-// 			let eb = new Discord.RichEmbed().setColor(16776960).setTitle("Game Information").setFooter("Small Scrims Discord").setTimestamp();
-// 			for(const role of codeRoles) {
-// 				const membersString = role.members.map(m => m.user.tag).join("\n");
-// 				eb.addField(`ID: ${role.name}`, membersString, true);
-// 			}
-// 			let last3chan = message.guild.channels.find(`name`, "scrim-last3");
- // 			last3chan.send(eb);
-			
-			
-// 			last3chan.overwritePermissions(message.guild.id, {
-// 			SEND_MESSAGES: false
-// 			})
-			
-// 		}
-		
-// 		return;
-// 	}
+
  	if(cmd === `${prefix}start` && message.member.roles.find(r => r.name === "Scrim Staff")) {
 		
 	
@@ -748,7 +641,7 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
 		for(const codeRoles of splitCodeRoles) {
 			let eb = new Discord.RichEmbed().setColor(16776960).setTitle("Informacion del juego").setFooter(`[Live] con ${allCodeRoles.length} matches.`);
 			for(const role of codeRoles) {
-				const membersString = role.members.map(m => m.username).join("\n");
+				const membersString = role.members.map(m => m.user.username).join("\n");
 				eb.addField(`ID: ${role.name}`, membersString, true);
 			}
 			let last3chan = message.guild.channels.find(`name`, "scrim-last3");
