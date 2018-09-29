@@ -559,7 +559,7 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
 			minsRemaining = Math.floor(minsRemaining);
 			startEmbed.setDescription(`Tienes *${minsRemaining}* segundos para escribir su Last3!`)
 			sent3Message.edit(startEmbed);
-			await startTimeout(5000);
+			await startTimeout(1000);
 		}
 		scrimlast3chan.overwritePermissions(message.guild.id, {
 		SEND_MESSAGES: true
