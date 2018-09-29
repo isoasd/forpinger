@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
  const bot = new Discord.Client({disableEveryone: true});
-const config = require("./config.json");
+const config = require("./process.env.json");
 const Fortnite = require("fortnite");
 const YTDL = require("ytdl-core");
 const opusscript = require("opusscript");
@@ -336,7 +336,7 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
 	}
 	if(cmd === `${prefix}rankme` && message.channel.id === "486681158348701697"){
 		const Client = require("fortnite");
-		const fortnite = new Client(config.APIKEY);
+		const fortnite = new Client(process.env.APIKEY);
 		
  		let username = args.slice(0).join(" ") || message.author.username;
 		let platform = "pc";
@@ -992,7 +992,7 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
 }
 	if(cmd === `${prefix}fn` && message.channel.id != "486026246007029781") {
 	const Client = require("fortnite");
-	const fortnite = new Client(config.APIKEY);	
+	const fortnite = new Client(process.env.APIKEY);	
 		
 		
 	if(message.channel.id === "486681158348701697") return;
@@ -1447,4 +1447,4 @@ if(message.channel.id === "490054558232477716" && message.member.roles.find(r =>
  		return message.channel.send(botembed);
  	}
 });
- bot.login(config.BOT_TOKEN);
+ bot.login(process.env.BOT_TOKEN);
